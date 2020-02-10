@@ -21,10 +21,17 @@ matrix:
   include:
     - python: 3.8
       arch: arm64
+      env: 
+        - COVERAGE_COVERAGE=no
+    - python: 3.8
+      arch: arm64
+      env: 
+        - COVERAGE_COVERAGE=yes
 
 env:
-  - COVERAGE_COVERAGE=no
-  - COVERAGE_COVERAGE=yes
+  matrix:
+    - COVERAGE_COVERAGE=no
+    - COVERAGE_COVERAGE=yes
 
 install:
   - pip install -r requirements/ci.pip
